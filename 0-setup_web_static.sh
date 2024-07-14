@@ -24,6 +24,7 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 # .../data/web_static/releases/test/ folder. If the symbolic link already...
 # ...exists, it should be deleted and recreated every time the script is ran.
 sudo chown -hR ubuntu:ubuntu /data/
+sudo chmod -R 755 /data/web_static/current
 # Give ownership of the /data/ folder to the ubuntu user AND group (you can
 # assume this user and group exist). This should be recursive; everything
 # inside should be created/owned by this user/group.
