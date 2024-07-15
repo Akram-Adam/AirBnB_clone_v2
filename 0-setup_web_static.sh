@@ -29,7 +29,7 @@ sudo chmod -R 755 /data/web_static/current
 # assume this user and group exist). This should be recursive; everything
 # inside should be created/owned by this user/group.
 #sudo mkdir -p /hbnb_static
-#curl -F "/data/web_static/releases/test/index.html" http://localhost/hbnb_static/
+curl -F "/data/web_static/releases/test/index.html" http://localhost/hbnb_static/
 sudo sed -i '/listen 80 default_server/a location /hbnb_static {alias /data/web_static/current;\n\t}' /etc/nginx/sites-available/default
 # Update the Nginx configuration to serve the content of
 # /data/web_static/current/ to hbnb_static
