@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+        </div>
+    </header>
+    <div class="container">
+        <div class="filters">
+            <div class="filter states">
+                <h3>States</h3>
+                <h4>&nbsp;</h4>
+                <ul>
+                    {% for state in states %}
+                    <li>
+                        <h2>{{ state.name }}</h2>
+                        <ul>
+                            {% for city in state.cities %}
+                            <li>{{ city.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="filter amenities">
+                <h3>Amenities</h3>
+                <h4>&nbsp;</h4>
+                <ul>
+                    {% for amenity in amenities %}
+                    <li>{{ amenity.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="places">
+            <h3>Places</h3>
+            <ul>
+                {% for place in places %}
+                <li>
+                    <h2>{{ place.name }}</h2>
+                    <div>Price: ${{ place.price_by_night }}</div>
+                    <div>Owner: {{ place.user.first_name }} {{ place.user.last_name }}</div>
+                    <div>Description: {{ place.description }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 HBNB</p>
+        </div>
+    </footer>
+</body>
+</html>
